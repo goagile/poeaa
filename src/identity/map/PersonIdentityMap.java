@@ -13,8 +13,12 @@ public class PersonIdentityMap {
     public static void main(String... args) {
         PersonIdentityMap map = new PersonIdentityMap();
         map.addPerson(123, new Person("Ilia"));
-        Person result = map.getPerson(123);
-        result.print();
+//        Person result = map.getPerson(123);
+//        result.print();
+        map.delPerson(123);
+        for(Person p : map.persons.values()) {
+            p.print();
+        }
     }
 
     public void addPerson(Integer key, Person p) {
@@ -23,5 +27,9 @@ public class PersonIdentityMap {
 
     public Person getPerson(Integer key) {
         return this.persons.get(key);
+    }
+
+    public void delPerson(Integer key) {
+        this.persons.remove(key);
     }
 }
