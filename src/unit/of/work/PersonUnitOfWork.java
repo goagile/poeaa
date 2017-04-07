@@ -14,6 +14,14 @@ public class PersonUnitOfWork {
     private Map<Integer, Person> newPersons = new HashMap();
     private Map<Integer, Person> delPersons = new HashMap();
 
+    public static void main(String[] args) {
+        PersonUnitOfWork unit = new PersonUnitOfWork();
+        unit.addNewPerson(123, new Person("Joe"));
+        unit.commit();
+
+        DB.persons.forEach((k, p) -> System.out.println(k + p.name));
+    }
+
     public void addNewPerson(Integer key, Person p) {
         this.newPersons.put(key, p);
     }

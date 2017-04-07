@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class DB {
 
-    private static Map persons = new HashMap();
+    public static Map<Integer, Person> persons = new HashMap();
 
-    public static void addPerson(int key, Person p) {
+    public static void addPerson(Integer key, Person p) {
         persons.put(key, p);
     }
 
