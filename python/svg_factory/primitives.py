@@ -12,7 +12,7 @@ class Circle:
 
     def svg(self):
         tmp = self._read_circle_tmp()
-        result = tmp.format(cx=100, cy=100, r=100, fill='#adadaf')
+        result = tmp.format(cx=self.cx, cy=self.cy, r=self.r, fill=self.fill)
         return result
 
     def _read_circle_tmp(self, filename='circle.svg'):
