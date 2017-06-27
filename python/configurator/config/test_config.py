@@ -1,5 +1,5 @@
-from examples.python.config.base_test import BaseTestCase
-from examples.python.config.products import Products
+from examples.python.configurator.config.base_test import BaseTestCase
+from examples.python.configurator.config.products import Products
 
 from python.configurator.config.config import Config
 
