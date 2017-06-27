@@ -1,4 +1,4 @@
-from examples.python.config.config import Config, Field
+from python.configurator.config.config import Config, Field
 
 
 class Products(Config):

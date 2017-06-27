@@ -1,6 +1,7 @@
 from examples.python.config.base_test import BaseTestCase
-from examples.python.config.config import Config
 from examples.python.config.products import Products
+
+from python.configurator.config.config import Config
 
 
 class TestClassAsValueCollection(BaseTestCase):

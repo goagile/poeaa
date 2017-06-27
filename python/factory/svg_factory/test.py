@@ -1,6 +1,6 @@
 import unittest
 
-from examples.python.svg_factory.svg_factory import SVGFactory
+from python.factory.svg_factory.svg_factory import SVGFactory
 
 
 class Test(unittest.TestCase):
