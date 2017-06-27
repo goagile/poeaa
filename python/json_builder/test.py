@@ -1,19 +1,22 @@
 import json
 import unittest
 
+PATH = 'examples/python/json_builder/products.json'
+
 
 class TestJSONBuilder(unittest.TestCase):
 
     def make(self):
-        return Builder()
+        return JsonBuilder()
 
-    def test_add_name(self):
+    def test_add_product(self):
         expected = {
             'Product': []
         }
         builder = self.make()
+        builder.add_product('Product')
 
-        result = builder.add_name('Product').items
+        result = builder.items
 
         self.assertEqual(expected, result)
 
@@ -25,19 +28,33 @@ class TestJSONBuilder(unittest.TestCase):
             }]
         }
         builder = self.make()
-        builder.add_name('Product')
+        builder.add_product('Product')
+        builder.add_field(name='Kg', label='Килограмм')
 
-        result = builder.add_field(name='Kg', label='Килограмм').items
+        result = builder.items
 
         self.assertEqual(expected, result)
 
     def test_json_builder(self):
-        builder = JsonBuilder()
-
-        builder.add_name('Products')
+        expected = {
+            'Product': [{
+                'name': 'Kg',
+                'label': 'Килограмм'
+            }]
+        }
+        builder = self.make()
+        builder.add_product('Product')
         builder.add_field(name='Kg', label='Килограмм')
+        builder.save(path=PATH)
 
-        builder.save(path='ng_django/examples/builder/products.json')
+        result = self.load(PATH)
+
+        self.assertEqual(expected, result)
+
+    def load(self, path):
+        with open(PATH, 'r') as file:
+            result = json.load(file)
+        return result
 
 
 class Builder:
@@ -46,14 +63,12 @@ class Builder:
         self.name = ''
         self.items = {}
 
-    def add_name(self, name):
+    def add_product(self, name):
         self.name = name
         self.items[self.name] = []
-        return self
 
     def add_field(self, **kwargs):
         self.items[self.name].append(kwargs)
-        return self
 
 
 class JsonBuilder(Builder):

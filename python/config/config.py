@@ -87,7 +87,7 @@ class Config(object, metaclass=Meta):
         return isinstance(field, Field)
 
     def generate_py_file(self, path):
-        import_string = 'from examples.config.config import Config, Field'
+        import_string = 'from examples.python.config.config import Config, Field'
 
         class_template = (
 """

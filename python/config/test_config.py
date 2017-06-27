@@ -1,8 +1,6 @@
-import unittest
-
-from examples.config.base_test import BaseTestCase
-from examples.config.config import Config
-from examples.config.products import Products
+from examples.python.config.base_test import BaseTestCase
+from examples.python.config.config import Config
+from examples.python.config.products import Products
 
 
 class TestClassAsValueCollection(BaseTestCase):
@@ -23,12 +21,6 @@ class TestClassAsValueCollection(BaseTestCase):
             (True,  Products.Velo == Products.Velo),
             (False, Products.Aqua == Products.Velo)
         ])
-
-    # def test_get_fields_as_list(self):
-    #     self.assertMembersInContainer(members=[
-    #         Products.Velo,
-    #         Products.Aqua
-    #     ], container=Products.kwargs.values())
 
 
 class TestInstanceAsDynamicConfig(BaseTestCase):
