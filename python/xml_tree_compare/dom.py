@@ -8,7 +8,7 @@ class XmlTree():
         pass
 
     @staticmethod
-    def convert_string_to_tree( xmlString):
+    def convert_string_to_tree(xmlString):
         return ET.fromstring(xmlString)
 
     def xml_compare(self, x1, x2, excludes=[]):
