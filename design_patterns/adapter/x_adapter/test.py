@@ -21,6 +21,17 @@ class Test(unittest.TestCase):
         self.assertEqual(10, result)
 
 
+class Product:
+
+    def __init__(self, name, price):
+        self.__name = name
+        self.__price = price
+
+    @property
+    def price(self):
+        return self.__price
+
+
 class PriceList:
 
     prices = {
