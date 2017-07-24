@@ -3,7 +3,7 @@ import os
 # from lxml import etree, html
 # from svglib.svglib import svg2rlg
 # from reportlab.graphics import renderPDF, renderPM
-from python.factory.svg_factory.primitives import Circle
+from design_patterns.factory.svg_factory.primitives import Circle
 
 
 class SVGFactory:
