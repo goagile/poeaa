@@ -49,7 +49,6 @@ class ProductProxy:
         return p.price
 
 
-
 class DB:
 
     products = {}
