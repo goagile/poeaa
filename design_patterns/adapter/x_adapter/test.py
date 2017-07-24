@@ -23,7 +23,14 @@ class Test(unittest.TestCase):
         self.assertEqual(expected, result)
 
 
-class Product:
+class BaseProduct:
+
+    @property
+    def price(self):
+        raise ValueError('ABS')
+
+
+class Product(BaseProduct):
 
     def __init__(self, name, price):
         self.__name = name
@@ -44,7 +51,7 @@ class PriceList:
         return self.prices[name]
 
 
-class ProductAdapter:
+class ProductAdapter(BaseProduct):
 
     def __init__(self, price_list, name):
         self.__price_list = price_list
